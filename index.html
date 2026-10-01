@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bellmac | Luxury Cosmetics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#000;--coal:#0e0c08;--panel:#16130c;--gold:#d4af37;--gold-hi:#f6e27a;--gold-lo:#8a6a17;--ivory:#efe6d0;--muted:#a39676;
+--gg:linear-gradient(135deg,#8a6a17 0%,#d4af37 30%,#f6e27a 50%,#d4af37 70%,#8a6a17 100%);
+--serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;--sans:"Jost","Helvetica Neue",Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--black);color:var(--ivory);font:300 17px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.gold{background:var(--gg);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:rgba(0,0,0,.88);backdrop-filter:blur(8px);border-bottom:1px solid #2a2314}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--serif);font-size:30px;letter-spacing:.14em;font-weight:600}
+nav ul{display:flex;gap:34px;list-style:none;padding:0;font-size:14px;letter-spacing:.08em}
+nav ul a{color:var(--muted);transition:color .3s}
+nav ul a:hover{color:var(--gold-hi)}
+.btn{display:inline-block;padding:14px 34px;border:1px solid var(--gold);color:var(--gold-hi);font-size:14px;letter-spacing:.1em;transition:background .35s,color .35s}
+.btn:hover{background:var(--gg);color:#000}
+.btn.solid{background:var(--gg);color:#000;border-color:transparent}
+.btn.solid:hover{filter:brightness(1.12)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(60% 70% at 72% 45%,#2b2109 0%,#0a0803 55%,#000 100%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:20px;min-height:calc(100vh - 68px);padding-top:50px;padding-bottom:50px}
+.hero h1{font-size:clamp(54px,8.5vw,120px);letter-spacing:.02em;margin-bottom:22px}
+.hero h1 em{display:block;font-size:.42em;font-style:italic;color:var(--ivory);letter-spacing:0;margin-top:10px}
+.hero p{max-width:440px;color:var(--muted);margin-bottom:38px}
+.hero .cta{display:flex;gap:16px;flex-wrap:wrap}
+.hero-art{position:relative;display:grid;place-items:center}
+.hero-art::before{content:"";position:absolute;width:82%;aspect-ratio:1;border-radius:50%;border:1px solid var(--gold-lo);box-shadow:0 0 0 22px rgba(212,175,55,.04),0 0 0 23px rgba(212,175,55,.25)}
+.hero-art svg{position:relative;width:min(100%,430px);filter:drop-shadow(0 30px 40px rgba(212,175,55,.22))}
+
+/* marquee-free trust band */
+.band{border-block:1px solid #2a2314;background:var(--coal)}
+.band .wrap{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;padding-block:26px;gap:12px}
+.band b{display:block;font:600 22px var(--serif);color:var(--gold)}
+.band span{font-size:14px;color:var(--muted)}
+
+/* collection */
+section{padding:110px 0}
+.head{max-width:620px;margin-bottom:60px}
+.head h2{font-size:clamp(38px,5vw,64px);margin-bottom:14px}
+.head p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.card{background:linear-gradient(180deg,var(--panel),#0a0905);border:1px solid #2a2314;padding:0 0 30px;transition:border-color .4s,transform .4s}
+.card:hover{border-color:var(--gold);transform:translateY(-6px)}
+.card .art{aspect-ratio:1/1.05;display:grid;place-items:center;background:radial-gradient(circle at 50% 55%,#2a2009 0%,transparent 68%)}
+.card .art svg{width:58%;filter:drop-shadow(0 16px 22px rgba(0,0,0,.7))}
+.card h3{font-size:30px;margin:8px 28px 4px}
+.card p{margin:0 28px 20px;color:var(--muted);font-size:15px}
+.card .row{display:flex;justify-content:space-between;align-items:center;margin:0 28px}
+.price{font:600 24px var(--serif);color:var(--gold-hi)}
+.card a.mini{font-size:13px;letter-spacing:.1em;border-bottom:1px solid var(--gold);padding-bottom:2px;color:var(--gold-hi)}
+
+/* story */
+.story{background:var(--coal);border-block:1px solid #2a2314}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.frame{position:relative;padding:22px}
+.frame::before{content:"";position:absolute;inset:0;border:1px solid var(--gold-lo)}
+.frame svg{width:100%;display:block;background:#000}
+.story h2{font-size:clamp(36px,4.6vw,58px);margin-bottom:22px}
+.story p{color:var(--muted);margin-bottom:18px;max-width:520px}
+.list{list-style:none;padding:0;margin:28px 0 34px}
+.list li{padding:14px 0;border-bottom:1px solid #2a2314;display:flex;gap:16px}
+.list li::before{content:"";flex:none;width:9px;height:9px;margin-top:10px;background:var(--gg);transform:rotate(45deg)}
+
+/* quote */
+.quote{text-align:center}
+.quote blockquote{font:italic 400 clamp(28px,3.8vw,46px)/1.3 var(--serif);max-width:860px;margin:0 auto 26px}
+.quote cite{color:var(--muted);font-style:normal;font-size:15px}
+.stars{color:var(--gold);letter-spacing:.3em;margin-bottom:24px}
+
+/* newsletter */
+.join{background:var(--gg);color:#000;text-align:center;padding:90px 0}
+.join h2{font-size:clamp(34px,4.5vw,56px);margin-bottom:12px}
+.join p{max-width:460px;margin:0 auto 30px;color:#2a2005}
+.join .f{display:flex;max-width:520px;margin:0 auto;border:1px solid #000}
+.join input{flex:1;min-width:0;padding:16px 20px;border:0;background:transparent;font:400 16px var(--sans);color:#000}
+.join input::placeholder{color:#4b3a0c}
+.join button{border:0;background:#000;color:var(--gold-hi);padding:0 30px;font:500 14px var(--sans);letter-spacing:.1em;cursor:pointer}
+.join button:hover{background:#1c1606}
+
+footer{padding:60px 0 40px;background:#000}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;align-items:flex-start}
+footer p{color:var(--muted);font-size:14px;max-width:300px;margin-top:10px}
+footer ul{list-style:none;padding:0;display:flex;gap:26px;font-size:14px;color:var(--muted)}
+footer ul a:hover{color:var(--gold-hi)}
+.legal{width:100%;border-top:1px solid #2a2314;padding-top:22px;font-size:13px;color:#6d6248}
+
+@media(max-width:900px){
+ nav ul{display:none}
+ .hero .wrap,.story .wrap{grid-template-columns:1fr}
+ .hero .wrap{min-height:0;padding-top:40px}
+ .hero-art{order:-1;margin-bottom:10px}
+ .hero-art svg{width:min(78%,320px)}
+ .grid{grid-template-columns:1fr}
+ .band .wrap{grid-template-columns:1fr 1fr}
+ section{padding:80px 0}
+ .story .wrap{gap:44px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav>
+ <div class="wrap">
+  <a class="logo gold" href="#top">BELLMAC</a>
+  <ul>
+   <li><a href="#collection">Collection</a></li>
+   <li><a href="#story">Our story</a></li>
+   <li><a href="#reviews">Reviews</a></li>
+   <li><a href="#join">Join</a></li>
+  </ul>
+  <a class="btn" href="#collection">Shop now</a>
+ </div>
+</nav>
+
+<header class="hero" id="top">
+ <div class="wrap">
+  <div>
+   <h1 class="gold">Bellmac<em>Beauty, cast in gold.</em></h1>
+   <p>Luxury lipsticks, serums and fragrance made for skin that deserves a little ceremony. Every piece is finished in real gold-toned detail.</p>
+   <div class="cta">
+    <a class="btn solid" href="#collection">Shop the collection</a>
+    <a class="btn" href="#story">Our story</a>
+   </div>
+  </div>
+  <div class="hero-art">
+   <svg viewBox="0 0 300 380" role="img" aria-label="Gold and black Bellmac perfume bottle">
+    <defs>
+     <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6a17"/><stop offset=".35" stop-color="#f6e27a"/><stop offset=".65" stop-color="#d4af37"/><stop offset="1" stop-color="#6f5410"/></linearGradient>
+     <linearGradient id="k1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#050505"/><stop offset=".45" stop-color="#2b2519"/><stop offset="1" stop-color="#050505"/></linearGradient>
+    </defs>
+    <rect x="120" y="14" width="60" height="70" rx="6" fill="url(#g1)"/>
+    <rect x="110" y="78" width="80" height="22" rx="3" fill="url(#g1)"/>
+    <rect x="132" y="100" width="36" height="22" fill="#1a150a" stroke="#d4af37" stroke-width="1"/>
+    <rect x="40" y="122" width="220" height="238" rx="18" fill="url(#k1)" stroke="url(#g1)" stroke-width="3"/>
+    <rect x="60" y="142" width="180" height="198" rx="10" fill="none" stroke="#d4af37" stroke-opacity=".45"/>
+    <text x="150" y="232" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="34" letter-spacing="6" fill="url(#g1)">BELLMAC</text>
+    <path d="M100 250h100" stroke="#d4af37" stroke-opacity=".7"/>
+    <text x="150" y="278" text-anchor="middle" font-family="Jost,Arial,sans-serif" font-size="11" letter-spacing="5" fill="#a39676">EAU DE PARFUM</text>
+    <path d="M78 160c30-14 114-14 144 0" stroke="#f6e27a" stroke-opacity=".35" fill="none" stroke-width="3"/>
+   </svg>
+  </div>
+ </div>
+</header>
+
+<div class="band">
+ <div class="wrap">
+  <div><b>100%</b><span>Cruelty free</span></div>
+  <div><b>24k</b><span>Gold-tone finish</span></div>
+  <div><b>48 hr</b><span>Long-wear colour</span></div>
+  <div><b>Free</b><span>Shipping over ₹2,999</span></div>
+ </div>
+</div>
+
+<section id="collection">
+ <div class="wrap">
+  <div class="head">
+   <h2>The gold collection</h2>
+   <p>Three essentials, each made to be kept on the vanity, not hidden in a drawer.</p>
+  </div>
+  <div class="grid">
+
+   <article class="card">
+    <div class="art">
+     <svg viewBox="0 0 120 200" role="img" aria-label="Gold lipstick">
+      <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a6a17"/><stop offset=".4" stop-color="#f6e27a"/><stop offset="1" stop-color="#8a6a17"/></linearGradient></defs>
+      <path d="M44 20 L60 4 L76 20 V70 H44Z" fill="#7a1024"/>
+      <path d="M44 20 L60 4 L76 20" fill="none" stroke="#c4324e" stroke-width="2"/>
+      <rect x="38" y="70" width="44" height="24" fill="url(#g2)"/>
+      <rect x="32" y="94" width="56" height="96" rx="4" fill="#0a0a0a" stroke="url(#g2)" stroke-width="2"/>
+      <rect x="32" y="118" width="56" height="5" fill="url(#g2)"/>
+      <text x="60" y="160" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="11" letter-spacing="2" fill="#f6e27a">BELLMAC</text>
+     </svg>
+    </div>
+    <h3>Velvet Noir Lipstick</h3>
+    <p>Rich, creamy colour with a soft matte finish that stays put all day.</p>
+    <div class="row"><span class="price">₹1,499</span><a class="mini" href="#join">Add to bag</a></div>
+   </article>
+
+   <article class="card">
+    <div class="art">
+     <svg viewBox="0 0 120 200" role="img" aria-label="Gold face serum bottle with dropper">
+      <defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a6a17"/><stop offset=".4" stop-color="#f6e27a"/><stop offset="1" stop-color="#8a6a17"/></linearGradient></defs>
+      <ellipse cx="60" cy="20" rx="16" ry="14" fill="#0a0a0a" stroke="url(#g3)" stroke-width="2"/>
+      <rect x="46" y="32" width="28" height="22" fill="url(#g3)"/>
+      <rect x="26" y="54" width="68" height="136" rx="10" fill="#120f08" stroke="url(#g3)" stroke-width="2"/>
+      <rect x="34" y="112" width="52" height="70" rx="6" fill="#d4af37" fill-opacity=".22"/>
+      <text x="60" y="90" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="11" letter-spacing="2" fill="#f6e27a">BELLMAC</text>
+      <text x="60" y="146" text-anchor="middle" font-family="Jost,Arial,sans-serif" font-size="8" letter-spacing="2" fill="#efe6d0">GOLD SERUM</text>
+     </svg>
+    </div>
+    <h3>Aurum Glow Serum</h3>
+    <p>A light, hydrating serum with vitamin C for skin that looks lit from within.</p>
+    <div class="row"><span class="price">₹2,799</span><a class="mini" href="#join">Add to bag</a></div>
+   </article>
+
+   <article class="card">
+    <div class="art">
+     <svg viewBox="0 0 160 160" role="img" aria-label="Gold compact powder">
+      <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6a17"/><stop offset=".45" stop-color="#f6e27a"/><stop offset="1" stop-color="#8a6a17"/></linearGradient></defs>
+      <ellipse cx="80" cy="128" rx="62" ry="18" fill="#000" fill-opacity=".6"/>
+      <path d="M22 110 Q22 60 80 52 Q138 60 138 110 Q138 132 80 134 Q22 132 22 110Z" fill="url(#g4)"/>
+      <path d="M32 106 Q32 70 80 62 Q128 70 128 106 Q128 122 80 124 Q32 122 32 106Z" fill="#0a0a0a"/>
+      <circle cx="80" cy="92" r="26" fill="none" stroke="url(#g4)" stroke-width="1.5"/>
+      <text x="80" y="97" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="13" letter-spacing="2" fill="#f6e27a">B</text>
+     </svg>
+    </div>
+    <h3>Halo Compact Powder</h3>
+    <p>A silky, weightless finish that blurs shine and keeps your base fresh.</p>
+    <div class="row"><span class="price">₹1,899</span><a class="mini" href="#join">Add to bag</a></div>
+   </article>
+
+  </div>
+ </div>
+</section>
+
+<section class="story" id="story">
+ <div class="wrap">
+  <div class="frame">
+   <svg viewBox="0 0 400 440" role="img" aria-label="Gold face outline with a lip and rose motif on black">
+    <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6a17"/><stop offset=".5" stop-color="#f6e27a"/><stop offset="1" stop-color="#8a6a17"/></linearGradient>
+    <radialGradient id="r5" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#3a2c0a"/><stop offset="1" stop-color="#000"/></radialGradient></defs>
+    <rect width="400" height="440" fill="url(#r5)"/>
+    <circle cx="200" cy="210" r="150" fill="none" stroke="url(#g5)" stroke-opacity=".5"/>
+    <path d="M150 120c0-46 100-46 100 0 0 60-10 100-50 130-40-30-50-70-50-130Z" fill="none" stroke="url(#g5)" stroke-width="2"/>
+    <path d="M160 300c10-14 26-16 40-8 14-8 30-6 40 8-10 20-26 28-40 28s-30-8-40-28Z" fill="#7a1024" stroke="url(#g5)" stroke-width="2"/>
+    <path d="M165 305c22 6 48 6 70 0" stroke="#f6e27a" stroke-opacity=".6" fill="none"/>
+    <g fill="none" stroke="url(#g5)" stroke-width="1.5">
+     <circle cx="92" cy="90" r="8"/><circle cx="92" cy="90" r="18"/><circle cx="92" cy="90" r="30"/>
+     <circle cx="312" cy="360" r="8"/><circle cx="312" cy="360" r="18"/><circle cx="312" cy="360" r="30"/>
+    </g>
+    <text x="200" y="404" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="26" letter-spacing="10" fill="url(#g5)">BELLMAC</text>
+   </svg>
+  </div>
+  <div>
+   <h2 class="gold">Made for the moments that matter</h2>
+   <p>Bellmac began with a simple idea: everyday beauty should feel like a special occasion. We pair skin-loving formulas with packaging you will be proud to reach for.</p>
+   <ul class="list">
+    <li>Dermatologist-tested formulas, never tested on animals</li>
+    <li>Refillable gold-tone cases to reduce waste</li>
+    <li>Shades developed for a wide range of skin tones</li>
+   </ul>
+   <a class="btn" href="#collection">Explore the range</a>
+  </div>
+ </div>
+</section>
+
+<section class="quote" id="reviews">
+ <div class="wrap">
+  <div class="stars" aria-label="Five stars">★★★★★</div>
+  <blockquote>The colour lasted through a full wedding day, and the case looks stunning on my dresser.</blockquote>
+  <cite>Ananya R., verified buyer</cite>
+ </div>
+</section>
+
+<div class="join" id="join">
+ <div class="wrap">
+  <h2>Get 10% off your first order</h2>
+  <p>Join the Bellmac list for early access to launches and private offers.</p>
+  <div class="f">
+   <input type="email" placeholder="Your email address" aria-label="Email address">
+   <button type="button">Join</button>
+  </div>
+ </div>
+</div>
+
+<footer>
+ <div class="wrap">
+  <div>
+   <div class="logo gold">BELLMAC</div>
+   <p>Luxury cosmetics in black and gold.</p>
+  </div>
+  <ul>
+   <li><a href="#collection">Collection</a></li>
+   <li><a href="#story">Our story</a></li>
+   <li><a href="#reviews">Reviews</a></li>
+   <li><a href="#join">Contact</a></li>
+  </ul>
+  <div class="legal">© 2026 Bellmac. All rights reserved.</div>
+ </div>
+</footer>
+
+</body>
+</html>
